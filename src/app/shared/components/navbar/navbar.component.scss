@@ -1,0 +1,25 @@
+body {
+      z-index: 99999;
+}
+
+#navbar
+{width: 100%;
+      box-sizing: border-box;} /* This makes sure padding and border are included in the element's total width */
+
+#context
+{
+      position: absolute;
+      display: none;
+      z-index: 999;
+}
+
+.hidePC {
+      display: block;
+      z-index: 999;
+}
+
+@media (max-width: 1024px) {
+      .hidePC {
+            display: none;
+      }
+}

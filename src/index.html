@@ -9,5 +9,24 @@
 </head>
 <body>
   <app-root></app-root>
+  <script type="module">
+    import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+    import { provideAnalytics, getAnalytics } from '@angular/fire/analytics';
+  import { } from 'firebase/analytics'; 
+  const firebaseConfig = {
+    apiKey: "AIzaSyBgrDjEGCi5KAav_Z13vEiOYf1aA19iL0s",
+    authDomain: "bakal-areanet.firebaseapp.com",
+    projectId: "bakal-areanet",
+    storageBucket: "bakal-areanet.firebasestorage.app",
+    messagingSenderId: "990730367254",
+    appId: "1:990730367254:web:57fbbf34031ab5e29e6037",
+    measurementId: "G-0KFF0X16JL"
+  };
+  
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  firebase.initializeApp(firebaseConfig);
+  </script>
 </body>
 </html>

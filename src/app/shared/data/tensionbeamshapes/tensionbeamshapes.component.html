@@ -1,0 +1,50 @@
+<span style="display: flex; align-items: center;">
+    <h1 style="font-size: 20px; margin-right: 10px; margin-top: -20px;">{{this.sharedService.subTitle}}</h1>
+    <div class="tooltip tooltip-info" 
+        data-tip="Select first the type of shape from the choices below, then select from the dropdown the beam shape to investigate. Afterwhich, input the respective Fy and Fu.">
+                <button style="transform: scale(0.7); vertical-align: top; margin-right: -5px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                    </svg>                                          
+                </button>
+    </div>
+  </span>   
+  
+  
+  
+
+
+
+  <div>
+  <select id="beamShapeDropdown" (change)="onBeamShapeSelected($event); calcCompact()" *ngIf="this.SteelShape != 3">
+      <option disabled selected>Select from below</option>
+      <option *ngFor="let beamShape of filteredBeamShapes" 
+      [value]="beamShape.AISC_Manual_Label">{{ beamShape.AISC_Manual_Label }}</option>
+    </select></div>
+
+
+
+
+
+    
+    <br *ngIf="this.SteelShape == 3">
+    <div id="filters">
+    <span class="form-control">
+        <label class="cursor-pointer label">
+          <span>Angle bars (L-shapes)</span>
+          <input type="radio" name="radio-1" value=1 [(ngModel)]="SteelShape" (change)="onCheckChange()" class="radio radio-xs radio-base-content" checked />
+        </label>
+        <label class="cursor-pointer label">
+            <span>I-shapes</span>
+            <input type="radio" name="radio-1" value=2 [(ngModel)]="SteelShape" (change)="onCheckChange()" class="radio radio-xs radio-base-content" />
+          </label>
+        <label class="cursor-pointer label">
+            <span>Channels (C-shapes)</span>
+            <input type="radio" name="radio-1" value=4 [(ngModel)]="SteelShape" (change)="onCheckChange()" class="radio radio-xs radio-base-content" />
+          </label>
+          <label class="cursor-pointer label">
+            <span>Steel plate</span>
+            <input type="radio" name="radio-1" value=3 [(ngModel)]="SteelShape" (change)="onCheckChange()" class="radio radio-xs radio-base-content" />
+          </label>
+    </span>
+    </div>
